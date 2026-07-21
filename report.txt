@@ -1,22 +1,21 @@
-6 snapshots  2026-07-20T22:46:23 -> 2026-07-21T07:11:25
-sampling every ~38 min
+12 snapshots  2026-07-20T22:46:23 -> 2026-07-21T08:23:42
+sampling every ~10 min
 
-inferred booking cutoff: ~107 min before tee time
-(shortest lead seen: 107 min)
+booking cutoff: 60 min before tee time (set manually)
+(data suggests ~66 min)
 
 sheet runs 06:30-17:50 every 10 min; showing first 10 and last 10
 (edit FRINGE_ONLY at the top of this file to see all times)
 
 
-NEVER BOOKED (expired at the cutoff, still full): 1
-  Tue Jul 21
-    6:40 AM  [4/4 spots]  gone 107m out
+NEVER BOOKED (expired at the cutoff, still full): 0
 
 PARTIALLY BOOKED (some spots sold): 0
 
-BOOKED: 26
+BOOKED: 27
   Tue Jul 21
     6:30 AM
+    6:40 AM  [4/4 spots]  gone 107m out
     6:50 AM
     7:00 AM
     7:10 AM
@@ -50,7 +49,7 @@ BOOKED: 26
 STILL OPEN (not resolved yet): 93
   Tue Jul 21
     4:20 PM  [4/4 spots]
-    4:30 PM  [4/4 spots]
+    4:30 PM  [2/4 spots]
     4:40 PM  [3/3 spots]
     4:50 PM  [4/4 spots]
     5:00 PM  [4/4 spots]
@@ -148,7 +147,7 @@ STILL OPEN (not resolved yet): 93
     5:40 PM  [4/4 spots]
     5:50 PM  [4/4 spots]
 
-Caveat: with 38-min sampling, anything vanishing within ~58 min of the cutoff can't be told apart from a last-minute booking.
+Caveat: with 10-min sampling, anything vanishing within ~35 min of the cutoff can't be told apart from a last-minute booking.
 
 
 ==============================================================
@@ -158,7 +157,7 @@ BY DAY
 Tuesday Jul 21
   -- morning --
        6:30 AM   booked
-  >>   6:40 AM   NEVER BOOKED
+       6:40 AM   booked
        6:50 AM   booked
        7:00 AM   booked
        7:10 AM   booked
@@ -178,7 +177,7 @@ Tuesday Jul 21
        5:30 PM   booked
        5:40 PM   not resolved yet
        5:50 PM   booked
-     1 of 20 fringe slots went unsold
+     0 of 20 fringe slots went unsold
 
 Wednesday Jul 22
   -- morning --
@@ -311,14 +310,14 @@ TALLY
 ==============================================================
 day             unsold  booked  partial   open
 ----------------------------------------------
-Tue Jul 21           1      11        0      8
+Tue Jul 21           0      12        0      8
 Wed Jul 22           0       4        0     16
 Thu Jul 23           0       7        0     13
 Fri Jul 24           0       1        0     19
 Sat Jul 25           0       3        0     17
 Sun Jul 26           0       0        0     20
 ----------------------------------------------
-TOTAL                1      26        0     93
+TOTAL                0      27        0     93
 
-1 of 27 resolved fringe slots (4%) went completely unsold.
+0 of 27 resolved fringe slots (0%) went completely unsold.
 93 slots haven't hit their cutoff yet.
