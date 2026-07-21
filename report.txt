@@ -1,5 +1,5 @@
-4 snapshots  2026-07-20T22:46:23 -> 2026-07-20T23:44:02
-sampling every ~10 min
+5 snapshots  2026-07-20T22:46:23 -> 2026-07-21T04:52:43
+sampling every ~24 min
 
 inferred booking cutoff: ~2095 min before tee time
 (shortest lead seen: 2095 min)
@@ -147,7 +147,7 @@ STILL OPEN (not resolved yet): 94
     5:40 PM  [4/4 spots]
     5:50 PM  [4/4 spots]
 
-Caveat: with 10-min sampling, anything vanishing within ~15 min of the cutoff can't be told apart from a last-minute booking.
+Caveat: with 24-min sampling, anything vanishing within ~36 min of the cutoff can't be told apart from a last-minute booking.
 
 
 ==============================================================
