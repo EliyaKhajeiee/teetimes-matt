@@ -1,0 +1,57 @@
+# Save this in your repo as:  .github/workflows/teetimes.yml
+#
+# Runs hourly on GitHub's servers. Your laptop can be closed.
+# Each run appends to snapshots.csv and commits it back to the repo,
+# so the data accumulates in the repo itself.
+
+name: teetimes
+
+# Cron is UTC. California in July is PDT (UTC-7).
+#
+# Booking closes 2 HOURS before each tee time, so a slot's fate is sealed
+# well before anyone tees off:
+#
+#   6:30-8:00am tee times  -> bookable until 4:30-6:0   0am
+#   4:20-5:50pm tee times  -> bookable until 2:20-3:50pm
+#
+# Those cutoff bands are what we sample, every 10 min (slots are 10 min apart,
+# so their deadlines are too). Windows carry ~30 min of padding on each side.
+on:
+  schedule:
+    - cron: "*/10 10-14 * * *"   # 3:00-7:59am PDT -> morning cutoff band
+    - cron: "*/10 20-23 * * *"   # 1:00-4:59pm PDT -> evening cutoff band
+  workflow_dispatch:              # also lets you click "Run workflow" manually
+
+permissions:
+  contents: write            # needed to commit snapshots.csv back
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    env:
+      # foreUP reports tee times in the course's local time. GitHub's runners
+      # are UTC, so without this the snapshot timestamps would be 7-8 hours
+      # off from the tee times and the cutoff math would be garbage.
+      TZ: America/Los_Angeles
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - name: Take snapshot
+        run: python teetimes.py snap
+
+      - name: Commit the new rows
+        run: |
+          git config user.name  "teetimes-bot"
+          git config user.email "teetimes-bot@users.noreply.github.com"
+          git add snapshots.csv
+          # nothing to commit is a normal outcome, not a failure
+          git diff --staged --quiet || git commit -m "snapshot $(date -u +%Y-%m-%dT%H:%M)"
+          git pull --rebase --autostash
+          git push
