@@ -1,4 +1,4 @@
-18 snapshots  2026-07-20T22:46:23 -> 2026-07-21T15:07:34
+24 snapshots  2026-07-20T22:46:23 -> 2026-07-21T16:53:11
 sampling every ~10 min
 
 booking cutoff: 60 min before tee time (set manually)
@@ -8,14 +8,20 @@ sheet runs 06:30-17:50 every 10 min; showing first 10 and last 10
 (edit FRINGE_ONLY at the top of this file to see all times)
 
 
-NEVER BOOKED (expired at the cutoff, still full): 0
+NEVER BOOKED (expired at the cutoff, still full): 2
+  Tue Jul 21
+    5:10 PM  [4/4 spots]  gone 68m out
+    5:20 PM  [1/1 spots]  gone 67m out
 
-PARTIALLY BOOKED (some spots sold): 2
+PARTIALLY BOOKED (some spots sold): 5
   Tue Jul 21
     4:20 PM  [2/4 spots]  gone 83m out
     4:30 PM  [2/4 spots]  gone 486m out
+    4:40 PM  [2/3 spots]  gone 92m out
+    4:50 PM  [1/4 spots]  gone 102m out
+    5:40 PM  [1/2 spots]  gone 77m out
 
-BOOKED: 37
+BOOKED: 39
   Tue Jul 21
     6:30 AM
     6:40 AM  [4/4 spots]  gone 107m out
@@ -35,8 +41,7 @@ BOOKED: 37
     7:00 AM
     7:10 AM
     7:20 AM
-    5:00 PM  [4/4 spots]  gone 1956m out
-    5:10 PM  [4/4 spots]  gone 1966m out
+    4:50 PM  [4/4 spots]  gone 1477m out
   Thu Jul 23
     6:30 AM
     6:50 AM
@@ -50,8 +55,11 @@ BOOKED: 37
   Fri Jul 24
     7:00 AM
     7:30 AM  [4/4 spots]  gone 3913m out
+    7:40 AM  [4/4 spots]  gone 3797m out
   Sat Jul 25
+    6:30 AM  [4/4 spots]  gone 5242m out
     7:10 AM
+    7:20 AM  [4/4 spots]  gone 5292m out
     7:30 AM  [4/4 spots]  gone 5333m out
     7:40 AM
     7:50 AM
@@ -60,13 +68,7 @@ BOOKED: 37
     7:00 AM  [4/4 spots]  gone 7116m out
     4:20 PM  [4/4 spots]  gone 7313m out
 
-STILL OPEN (not resolved yet): 81
-  Tue Jul 21
-    4:40 PM  [2/3 spots]
-    4:50 PM  [1/4 spots]
-    5:10 PM  [4/4 spots]
-    5:20 PM  [1/1 spots]
-    5:40 PM  [3/2 spots]
+STILL OPEN (not resolved yet): 74
   Wed Jul 22
     6:30 AM  [2/2 spots]
     6:50 AM  [4/4 spots]
@@ -74,10 +76,11 @@ STILL OPEN (not resolved yet): 81
     7:40 AM  [4/4 spots]
     7:50 AM  [2/2 spots]
     8:00 AM  [4/4 spots]
-    4:20 PM  [4/4 spots]
+    4:20 PM  [1/4 spots]
     4:30 PM  [4/4 spots]
     4:40 PM  [4/4 spots]
-    4:50 PM  [4/4 spots]
+    5:00 PM  [4/4 spots]
+    5:10 PM  [4/4 spots]
     5:20 PM  [4/4 spots]
     5:30 PM  [4/4 spots]
     5:40 PM  [4/4 spots]
@@ -98,9 +101,8 @@ STILL OPEN (not resolved yet): 81
     6:30 AM  [1/1 spots]
     6:40 AM  [4/4 spots]
     6:50 AM  [4/4 spots]
-    7:10 AM  [4/4 spots]
+    7:10 AM  [2/4 spots]
     7:20 AM  [2/2 spots]
-    7:40 AM  [4/4 spots]
     7:50 AM  [4/4 spots]
     8:00 AM  [4/4 spots]
     4:20 PM  [4/4 spots]
@@ -114,11 +116,9 @@ STILL OPEN (not resolved yet): 81
     5:40 PM  [4/4 spots]
     5:50 PM  [4/4 spots]
   Sat Jul 25
-    6:30 AM  [4/4 spots]
     6:40 AM  [4/4 spots]
     6:50 AM  [2/2 spots]
     7:00 AM  [2/2 spots]
-    7:20 AM  [4/4 spots]
     8:00 AM  [4/4 spots]
     4:20 PM  [4/4 spots]
     4:30 PM  [4/4 spots]
@@ -171,15 +171,15 @@ Tuesday Jul 21
   -- evening --
        4:20 PM   partial
        4:30 PM   partial
-       4:40 PM   not resolved yet
-       4:50 PM   not resolved yet
+       4:40 PM   partial
+       4:50 PM   partial
        5:00 PM   booked
-       5:10 PM   not resolved yet
-       5:20 PM   not resolved yet
+  >>   5:10 PM   NEVER BOOKED
+  >>   5:20 PM   NEVER BOOKED
        5:30 PM   booked
-       5:40 PM   not resolved yet
+       5:40 PM   partial
        5:50 PM   booked
-     0 of 20 fringe slots went unsold
+     2 of 20 fringe slots went unsold
 
 Wednesday Jul 22
   -- morning --
@@ -197,9 +197,9 @@ Wednesday Jul 22
        4:20 PM   not resolved yet
        4:30 PM   not resolved yet
        4:40 PM   not resolved yet
-       4:50 PM   not resolved yet
-       5:00 PM   booked
-       5:10 PM   booked
+       4:50 PM   booked
+       5:00 PM   not resolved yet
+       5:10 PM   not resolved yet
        5:20 PM   not resolved yet
        5:30 PM   not resolved yet
        5:40 PM   not resolved yet
@@ -240,7 +240,7 @@ Friday Jul 24
        7:10 AM   not resolved yet
        7:20 AM   not resolved yet
        7:30 AM   booked
-       7:40 AM   not resolved yet
+       7:40 AM   booked
        7:50 AM   not resolved yet
        8:00 AM   not resolved yet
   -- evening --
@@ -258,12 +258,12 @@ Friday Jul 24
 
 Saturday Jul 25
   -- morning --
-       6:30 AM   not resolved yet
+       6:30 AM   booked
        6:40 AM   not resolved yet
        6:50 AM   not resolved yet
        7:00 AM   not resolved yet
        7:10 AM   booked
-       7:20 AM   not resolved yet
+       7:20 AM   booked
        7:30 AM   booked
        7:40 AM   booked
        7:50 AM   booked
@@ -312,14 +312,14 @@ TALLY
 ==============================================================
 day             unsold  booked  partial   open
 ----------------------------------------------
-Tue Jul 21           0      13        2      5
-Wed Jul 22           0       6        0     14
+Tue Jul 21           2      13        5      0
+Wed Jul 22           0       5        0     15
 Thu Jul 23           0       9        0     11
-Fri Jul 24           0       2        0     18
-Sat Jul 25           0       4        0     16
+Fri Jul 24           0       3        0     17
+Sat Jul 25           0       6        0     14
 Sun Jul 26           0       3        0     17
 ----------------------------------------------
-TOTAL                0      37        2     81
+TOTAL                2      39        5     74
 
-0 of 39 resolved fringe slots (0%) went completely unsold.
-81 slots haven't hit their cutoff yet.
+2 of 46 resolved fringe slots (4%) went completely unsold.
+74 slots haven't hit their cutoff yet.
