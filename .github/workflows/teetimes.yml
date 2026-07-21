@@ -1,18 +1,41 @@
+# Save this in your repo as:  .github/workflows/teetimes.yml
+#
+# Runs hourly on GitHub's servers. Your laptop can be closed.
+# Each run appends to snapshots.csv and commits it back to the repo,
+# so the data accumulates in the repo itself.
+
 name: teetimes
 
+# Cron is UTC. California in July is PDT (UTC-7).
+#
+# Booking closes 2 HOURS before each tee time, so a slot's fate is sealed
+# well before anyone tees off:
+#
+#   6:30-8:00am tee times  -> bookable until 4:30-6:00am
+#   4:20-5:50pm tee times  -> bookable until 2:20-3:50pm
+#
+# Those cutoff bands are what we sample, every 10 min (slots are 10 min apart,
+# so their deadlines are too). Windows carry ~30 min of padding on each side.
+# GitHub heavily throttles */10 crons -- asking for every 10 minutes actually
+# delivered about once an hour. So we ask for HOURLY (which GitHub honours
+# reliably) and do the 10-minute sampling inside the job with a sleep loop.
+# One run = six snapshots spread across ~50 minutes.
 on:
   schedule:
-    - cron: "*/10 10-14 * * *"   # 3:00-7:59am PDT -> morning cutoff band
-    - cron: "*/10 20-23 * * *"   # 1:00-4:59pm PDT -> evening cutoff band
-  workflow_dispatch:
+    - cron: "0 10-14 * * *"      # 3:00-7:59am PDT -> morning cutoff band
+    - cron: "0 20-23 * * *"      # 1:00-4:59pm PDT -> evening cutoff band
+  workflow_dispatch:              # also lets you click "Run workflow" manually
 
 permissions:
-  contents: write
+  contents: write            # needed to commit snapshots.csv back
 
 jobs:
   snapshot:
     runs-on: ubuntu-latest
     env:
+      # foreUP reports tee times in the course's local time. GitHub's runners
+      # are UTC, so without this the snapshot timestamps would be 7-8 hours
+      # off from the tee times and the cutoff math would be garbage.
       TZ: America/Los_Angeles
 
     steps:
@@ -24,9 +47,20 @@ jobs:
 
       - run: pip install requests
 
-      - name: Take snapshot
-        run: python teetimes.py snap
+      # Six snapshots, 10 minutes apart, inside one run. This is what gives us
+      # 10-minute resolution despite GitHub only starting the job hourly.
+      # `|| true` so one failed fetch can't kill the remaining snapshots.
+      - name: Take snapshots every 10 min for ~50 min
+        timeout-minutes: 60
+        run: |
+          for i in 1 2 3 4 5 6; do
+            echo "--- snapshot $i/6 at $(date) ---"
+            python teetimes.py snap || true
+            if [ $i -lt 6 ]; then sleep 600; fi
+          done
 
+      # Regenerate the human-readable answer after every snapshot, so the
+      # repo always holds a current report you can read on your phone.
       - name: Rebuild the report
         run: python teetimes.py report > report.txt 2>&1
 
@@ -35,6 +69,7 @@ jobs:
           git config user.name  "teetimes-bot"
           git config user.email "teetimes-bot@users.noreply.github.com"
           git add snapshots.csv report.txt
+          # nothing to commit is a normal outcome, not a failure
           git diff --staged --quiet || git commit -m "snapshot $(date -u +%Y-%m-%dT%H:%M)"
           git pull --rebase --autostash
           git push
