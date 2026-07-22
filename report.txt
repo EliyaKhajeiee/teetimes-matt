@@ -1,4 +1,4 @@
-36 snapshots  2026-07-20T22:46:23 -> 2026-07-22T07:45:34
+42 snapshots  2026-07-20T22:46:23 -> 2026-07-22T09:33:58
 sampling every ~10 min
 
 booking cutoff: 60 min before tee time (set manually)
