@@ -1,4 +1,4 @@
-114 snapshots  2026-07-20T22:46:23 -> 2026-07-25T05:01:10
+120 snapshots  2026-07-20T22:46:23 -> 2026-07-25T07:17:33
 sampling every ~10 min
 
 booking cutoff: 60 min before tee time (set manually)
@@ -24,7 +24,7 @@ NEVER BOOKED (expired at the cutoff, still full): 10
   Fri Jul 24
     5:50 PM  [4/4 spots]  gone 62m out
 
-PARTIALLY BOOKED (some spots sold): 34
+PARTIALLY BOOKED (some spots sold): 33
   Tue Jul 21
     4:20 PM  [2/4 spots]  gone 83m out
     4:30 PM  [2/4 spots]  gone 486m out
@@ -62,7 +62,6 @@ PARTIALLY BOOKED (some spots sold): 34
     7:30 AM  [2/4 spots]  gone 1334m out
   Sun Jul 26
     6:50 AM  [2/4 spots]  gone 2957m out
-    7:10 AM  [1/4 spots]  gone 2292m out
     7:30 AM  [2/4 spots]  gone 2428m out
     8:00 AM  [2/4 spots]  gone 2458m out
 
@@ -131,7 +130,7 @@ BOOKED: 57
     4:20 PM  [4/4 spots]  gone 7313m out
     5:30 PM  [4/4 spots]  gone 5789m out
 
-STILL OPEN (not resolved yet): 19
+STILL OPEN (not resolved yet): 20
   Sat Jul 25
     4:20 PM  [2/4 spots]
     4:30 PM  [4/4 spots]
@@ -144,6 +143,7 @@ STILL OPEN (not resolved yet): 19
     5:40 PM  [4/4 spots]
     5:50 PM  [4/4 spots]
   Sun Jul 26
+    7:10 AM  [1/4 spots]
     7:20 AM  [4/4 spots]
     4:30 PM  [4/4 spots]
     4:40 PM  [4/4 spots]
@@ -292,7 +292,7 @@ Sunday Jul 26
        6:40 AM   booked
        6:50 AM   partial
        7:00 AM   booked
-       7:10 AM   partial
+       7:10 AM   not resolved yet
        7:20 AM   not resolved yet
        7:30 AM   partial
        7:40 AM   booked
@@ -322,9 +322,9 @@ Wed Jul 22           5       7        8      0
 Thu Jul 23           2      12        6      0
 Fri Jul 24           1      10        9      0
 Sat Jul 25           0       8        2     10
-Sun Jul 26           0       7        4      9
+Sun Jul 26           0       7        3     10
 ----------------------------------------------
-TOTAL               10      57       34     19
+TOTAL               10      57       33     20
 
-10 of 101 resolved fringe slots (10%) went completely unsold.
-19 slots haven't hit their cutoff yet.
+10 of 100 resolved fringe slots (10%) went completely unsold.
+20 slots haven't hit their cutoff yet.
