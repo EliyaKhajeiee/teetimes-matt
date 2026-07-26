@@ -1,4 +1,4 @@
-162 snapshots  2026-07-20T22:46:23 -> 2026-07-26T08:56:17
+168 snapshots  2026-07-20T22:46:23 -> 2026-07-26T14:54:27
 sampling every ~10 min
 
 booking cutoff: 60 min before tee time (set manually)
@@ -75,7 +75,7 @@ PARTIALLY BOOKED (some spots sold): 38
     7:30 AM  [2/4 spots]  gone 2428m out
     8:00 AM  [2/4 spots]  gone 2458m out
 
-BOOKED: 60
+BOOKED: 61
   Tue Jul 21
     6:30 AM
     6:40 AM  [4/4 spots]  gone 107m out
@@ -141,15 +141,15 @@ BOOKED: 60
     7:40 AM  [4/4 spots]  gone 2784m out
     7:50 AM  [4/4 spots]  gone 3777m out
     4:20 PM  [4/4 spots]  gone 7313m out
+    5:10 PM  [4/4 spots]  gone 494m out
     5:30 PM  [4/4 spots]  gone 5789m out
 
-STILL OPEN (not resolved yet): 8
+STILL OPEN (not resolved yet): 7
   Sun Jul 26
-    4:30 PM  [4/4 spots]
-    4:40 PM  [4/4 spots]
-    4:50 PM  [4/4 spots]
-    5:00 PM  [4/4 spots]
-    5:10 PM  [4/4 spots]
+    4:30 PM  [1/4 spots]
+    4:40 PM  [3/4 spots]
+    4:50 PM  [1/4 spots]
+    5:00 PM  [1/4 spots]
     5:20 PM  [4/4 spots]
     5:40 PM  [4/4 spots]
     5:50 PM  [4/4 spots]
@@ -304,7 +304,7 @@ Sunday Jul 26
        4:40 PM   not resolved yet
        4:50 PM   not resolved yet
        5:00 PM   not resolved yet
-       5:10 PM   not resolved yet
+       5:10 PM   booked
        5:20 PM   not resolved yet
        5:30 PM   booked
        5:40 PM   not resolved yet
@@ -322,9 +322,9 @@ Wed Jul 22           5       7        8      0
 Thu Jul 23           2      12        6      0
 Fri Jul 24           1      10        9      0
 Sat Jul 25           4      11        5      0
-Sun Jul 26           0       7        5      8
+Sun Jul 26           0       8        5      7
 ----------------------------------------------
-TOTAL               14      60       38      8
+TOTAL               14      61       38      7
 
-14 of 112 resolved fringe slots (12%) went completely unsold.
-8 slots haven't hit their cutoff yet.
+14 of 113 resolved fringe slots (12%) went completely unsold.
+7 slots haven't hit their cutoff yet.
